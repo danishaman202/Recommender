@@ -10,9 +10,9 @@ import pandas as pd
 from sklearn.decomposition import TruncatedSVD
 import numpy as np
 column = ['user_id','item_id','rating','timestamp']
-data = pd.read_csv('C:/Users/user/Documents/Data Science Projects/Recommender system/ml-100k/u.data', sep = "\t", names = column)
+data = pd.read_csv('u.data', sep = "\t", names = column)
 column2 = ['item_id','movie name','release_date', 'video release date','imdb URL', 'unknown', 'action','adventure','animation', 'children', 'comedy', 'crime', 'documentary', 'drama', 'fantasy', 'film noir', 'horror', 'musical', 'mystery', 'romance', 'scifi', 'thriller', 'war', 'western']
-movie = pd.read_csv('C:/Users/user/Documents/Data Science Projects/Recommender system/ml-100k/u.item', sep = "|", encoding='latin-1', names = column2)
+movie = pd.read_csv('u.item', sep = "|", encoding='latin-1', names = column2)
 data_2 = pd.merge(data,movie, on = 'item_id')
 crosstab = data_2.pivot_table(values = 'rating', columns = 'movie name', index = 'user_id', fill_value = 0)
 X = crosstab.T.values
