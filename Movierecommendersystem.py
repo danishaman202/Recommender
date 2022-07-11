@@ -38,5 +38,6 @@ st.write("The List of the movies is:")
 st.write(pd.Series(m))
 st.write("Please enter the index of the movie that you selected:")
 choice = st.number_input("Please enter the number:",min_value= 0, max_value = 1663)
-st.write("The most related movies to your input are :")
-st.write(namer(choice))
+if st.button("Check!!"):
+    st.write("The most related movies to your input are :")
+    st.write(namer(choice))
